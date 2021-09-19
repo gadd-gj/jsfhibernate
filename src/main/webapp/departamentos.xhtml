@@ -12,25 +12,24 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        Departamentos
+        <title>Departamentos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body class="container">
         <ui:include src="/componentes/menu.xhtml" />
 
         <h1>Registro de Departamentos</h1>
-        <p:growl id="growl" showDetail="true" />  
-        <div class="ui-fluid" >
+        <p:growl id="growl" showDetail="true" />
 
-            <h:form class="ui-g-6">
-                <br/>
-                <div class="ui-g-6 ui-md-6 ui-lg-6">
-                    <h:outputLabel for="nombre" value="Nombre del departamento"/>
-                </div>
-                <div class="ui-g-6 ui-md-6 ui-lg-6">
+        <div class="ui-g" style="text-align: center" >
+
+            <h:form>
+                <span class="ui-float-label">
                     <p:inputText required="true" id="nombre" value="#{departamentoBean.departamento.nombre}"/>
-                    <hr />
+                    <h:outputLabel for="@previous" value="Nombre"/>
+                </span>
 
-                </div>
+                <br />
                 <div>
                     <p:commandButton value="Registrar" action="#{departamentoBean.guardar()}" update="growl"/> 
                 </div>
@@ -39,7 +38,7 @@ and open the template in the editor.
 
 
         <div class="container ui-g-12">   
-            <h2>Lista de departamentos</h2>
+            <h2>Departamentos</h2>
             <p:dataTable var="departamentoActual" value="#{departamentoBean.departamentos}">
 
                 <p:column headerText="Clave">

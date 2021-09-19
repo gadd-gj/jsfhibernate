@@ -15,20 +15,22 @@ and open the template in the editor.
         <link href="styles.css" rel="stylesheet" type="text/css" />
     </h:head>
     <h:body class="container">
-        <h:form>
-            <h3 class="titulo">Login</h3>
-            <p:outputLabel for="username" value="Username " />
-            <p:inputText id="username" value="#{login.user}"/>
-            <p:message for="username"></p:message>
-            <br></br><br></br>
+        <div class="card" style="text-align: center">
+            <h:form>
+                <h3 class="titulo">Login</h3>
+                <p:outputLabel for="username" value="Username " />
+                <p:inputText id="username" value="#{login.user}"/>
+                <p:message for="username"></p:message>
+                <br></br><br></br>
 
-            <p:outputLabel for="password" value="Password " />
-            <p:password id="password" value="#{login.pwd}"/>
-            <p:message for="password"></p:message>
-            <br></br><br></br>
+                <p:outputLabel for="password" value="Password " />
+                <p:password id="password" value="#{login.pwd}"/>
+                <p:message for="password"></p:message>
+                <br></br><br></br>
 
-            <p:commandButton action="#{login.validateUsernamePassword()}"
-                             value="Login"/>
-        </h:form>
+                <p:commandButton action="#{login.validateUsernamePassword()}"
+                                 value="Login"/>
+            </h:form>
+        </div>
     </h:body>
 </html>

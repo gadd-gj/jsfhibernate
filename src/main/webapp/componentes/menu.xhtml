@@ -11,19 +11,22 @@ and open the template in the editor.
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
     <h:form>
         Bienvenido #{login.user}
         <h:commandLink action="#{login.logout}" value="Logout" style="margin-right:20px;" ></h:commandLink>
 
-        <p:tabMenu activeIndex="#{param.i}">
-            <p:menuitem value="Inicio" outcome="index" icon="pi pi-star">
-                <f:param name="i" value="0" />
-            </p:menuitem>
-            <p:menuitem value="Departamentos" outcome="departamentos" icon="pi pi-briefcase">
-                <f:param name="i" value="1" />
-            </p:menuitem>
+        <div>
+            <p:tabMenu activeIndex="#{param.i}">
+                <p:menuitem value="Inicio" outcome="index" icon="pi pi-star">
+                    <f:param name="i" value="0" />
+                </p:menuitem>
+                <p:menuitem value="Departamentos" outcome="departamentos" icon="pi pi-briefcase">
+                    <f:param name="i" value="1" />
+                </p:menuitem>
 
-        </p:tabMenu>
+            </p:tabMenu>
+        </div>
 
     </h:form>
 </ui:composition>

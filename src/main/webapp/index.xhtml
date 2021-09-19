@@ -17,10 +17,11 @@ and open the template in the editor.
     <h:body>
         <ui:include src="/componentes/menu.xhtml" />
         <h1>Registro de empleados</h1>
-        <div class="ui-fluid" >
+
+        <div class="ui-g">
             <p:growl id="growl" showDetail="true" />
 
-            <h:form class="ui-g">
+            <h:form class="ui-g" style="text-align: center">
                 <div class="ui-g-12 ui-md-6 ui-lg-6">
                     <h:outputLabel for="nombre" value="Nombre "/>
                     <p:inputText required="true" id="nombre" value="#{empleadoBean.empleado.nombre}" />
@@ -38,9 +39,30 @@ and open the template in the editor.
                     <p:inputText required="true" value="#{empleadoBean.empleado.password}"/>
                 </div>
 
-                <p:commandButton value="Registrar" action="#{empleadoBean.guardar()}" update="growl"/>
+                <div class="ui-g-12 ui-md-12 ui-lg-12" style="text-align: center">
+                    <p:commandButton value="Registrar" action="#{empleadoBean.guardar()}" update="growl" />
+                </div>
 
             </h:form>
         </div>
+
+        <div>
+            <h2>Empleados</h2>
+            <p:dataTable var="empleadoActual" value="#{empleadoBean.empleados}">
+                <p:column headerText="Id">
+                    #{empleadoActual.id}
+                </p:column>
+                <p:column headerText="Nombre">
+                    #{empleadoActual.nombre}
+                </p:column>
+                <p:column headerText="Dirección">
+                    #{empleadoActual.direccion}
+                </p:column>
+                <p:column headerText="Username">
+                    #{empleadoActual.username}
+                </p:column>
+            </p:dataTable>
+        </div>
+
     </h:body>
 </html>
