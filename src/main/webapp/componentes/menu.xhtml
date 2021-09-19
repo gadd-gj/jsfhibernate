@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:form>
+        Bienvenido #{login.user}
+        <h:commandLink action="#{login.logout}" value="Logout" style="margin-right:20px;" ></h:commandLink>
+
+        <p:tabMenu activeIndex="#{param.i}">
+            <p:menuitem value="Inicio" outcome="index" icon="pi pi-star">
+                <f:param name="i" value="0" />
+            </p:menuitem>
+            <p:menuitem value="Departamentos" outcome="departamentos" icon="pi pi-briefcase">
+                <f:param name="i" value="1" />
+            </p:menuitem>
+
+        </p:tabMenu>
+
+    </h:form>
+</ui:composition>

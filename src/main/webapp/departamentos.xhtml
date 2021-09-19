@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        Departamentos
+    </h:head>
+    <h:body class="container">
+        <ui:include src="/componentes/menu.xhtml" />
+
+        <h1>Registro de Departamentos</h1>
+        <p:growl id="growl" showDetail="true" />  
+        <div class="ui-fluid" >
+
+            <h:form class="ui-g-6">
+                <br/>
+                <div class="ui-g-6 ui-md-6 ui-lg-6">
+                    <h:outputLabel for="nombre" value="Nombre del departamento"/>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-lg-6">
+                    <p:inputText required="true" id="nombre" value="#{departamentoBean.departamento.nombre}"/>
+                    <hr />
+
+                </div>
+                <div>
+                    <p:commandButton value="Registrar" action="#{departamentoBean.guardar()}" update="growl"/> 
+                </div>
+            </h:form>
+        </div>
+
+
+        <div class="container ui-g-12">   
+            <h2>Lista de departamentos</h2>
+            <p:dataTable var="departamentoActual" value="#{departamentoBean.departamentos}">
+
+                <p:column headerText="Clave">
+                    #{departamentoActual.id}
+                </p:column>
+
+                <p:column headerText="Departamento">
+                    #{departamentoActual.nombre}
+                </p:column>
+
+            </p:dataTable>
+
+        </div>
+    </h:body>
+</html>

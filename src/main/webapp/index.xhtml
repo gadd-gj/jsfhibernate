@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Empleados</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:include src="/componentes/menu.xhtml" />
+        <h1>Registro de empleados</h1>
+        <div class="ui-fluid" >
+            <p:growl id="growl" showDetail="true" />
+
+            <h:form class="ui-g">
+                <div class="ui-g-12 ui-md-6 ui-lg-6">
+                    <h:outputLabel for="nombre" value="Nombre "/>
+                    <p:inputText required="true" id="nombre" value="#{empleadoBean.empleado.nombre}" />
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-6">
+                    Dirección
+                    <p:inputText required="true" value="#{empleadoBean.empleado.direccion}"/>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-6">
+                    Usuario
+                    <p:inputText required="true" value="#{empleadoBean.empleado.username}"/>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-6">
+                    Contraseña
+                    <p:inputText required="true" value="#{empleadoBean.empleado.password}"/>
+                </div>
+
+                <p:commandButton value="Registrar" action="#{empleadoBean.guardar()}" update="growl"/>
+
+            </h:form>
+        </div>
+    </h:body>
+</html>
