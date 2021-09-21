@@ -34,7 +34,7 @@ public class EmpleadoBean implements Serializable {
     }
 
     public List<Empleado> getEmpleados() {
-        return empleados;
+        return empleados = empleadoModel.findAll();
     }
 
     public void setEmpleados(List<Empleado> empleados) {
