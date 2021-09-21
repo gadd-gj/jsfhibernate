@@ -16,32 +16,58 @@
 
         <div class="ui-g">
             <p:growl id="growl" showDetail="true" />
-
-            <h:form class="ui-g" style="text-align: center">
-                <div class="ui-g-12 ui-md-6 ui-lg-6">
-                    <h:outputLabel for="nombre" value="Nombre "/>
-                    <p:inputText required="true" id="nombre" value="#{empleadoBean.empleado.nombre}" />
-                </div>
-                <div class="ui-g-12 ui-md-6 ui-lg-6">
-                    Dirección
-                    <p:inputText required="true" value="#{empleadoBean.empleado.direccion}"/>
-                </div>
-                <div class="ui-g-12 ui-md-6 ui-lg-6">
-                    Usuario
-                    <p:inputText required="true" value="#{empleadoBean.empleado.username}"/>
-                </div>
-                <div class="ui-g-12 ui-md-6 ui-lg-6">
-                    Contraseña
-                    <p:inputText required="true" value="#{empleadoBean.empleado.password}"/>
-                </div>
-
-                <div class="ui-g-12 ui-md-12 ui-lg-12" style="text-align: center">
-                    <p:commandButton value="Registrar" action="#{empleadoBean.guardar()}" update="growl" />
-                </div>
-
-            </h:form>
         </div>
-
+        <h:form>
+            <p:panelGrid columns="4" layout="grid" styleClass="showcase-text-align-center">
+                <h:outputText value=""/>
+                <p:outputPanel deferred="true">
+                    <div class="p-grid">
+                        <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+                            <div class="ui-fluid">
+                                <div class="p-field">
+                                    <span class="ui-float-label">
+                                        <p:inputText required="true" id="nombre" value="#{empleadoBean.empleado.nombre}"/>
+                                        <p:outputLabel for="nombre" value="Nombre"/>
+                                    </span>
+                                    <br/>
+                                </div>
+                                <div class="p-field">
+                                    <span class="ui-float-label">
+                                        <p:inputText required="true" id="username" value="#{empleadoBean.empleado.username}"/>
+                                        <p:outputLabel for="username" value="username"/>
+                                    </span>
+                                    <br/>
+                                </div>
+                                <p:commandButton value="Registrar" action="#{empleadoBean.guardar()}" update="growl" />
+                            </div>
+                        </div>
+                    </div>
+                </p:outputPanel>
+                <p:outputPanel deferred="true">
+                    <div class="p-grid">
+                        <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+                            <div class="ui-fluid">
+                                <div class="p-field">
+                                    <span class="ui-float-label">
+                                        <p:inputText id="direccion" required="true" value="#{empleadoBean.empleado.direccion}"/>
+                                        <p:outputLabel for="direccion" value="Dirección"/>
+                                    </span>
+                                    <br/>
+                                </div>
+                                <div class="p-field">
+                                    <span class="ui-float-label">
+                                        <p:inputText id="password" required="true" value="#{empleadoBean.empleado.password}"/>
+                                        <p:outputLabel for="password" value="Contraseña"/>
+                                    </span>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p:outputPanel>    
+                <h:outputText value=""/>
+            </p:panelGrid>
+        </h:form> 
         <div>
             <h2>Empleados</h2>
             <p:dataTable var="empleadoActual" value="#{empleadoBean.empleados}">

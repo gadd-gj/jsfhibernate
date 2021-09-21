@@ -12,8 +12,9 @@ and open the template in the editor.
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <h:form>
+    
         <div class="card">
+            <h:form>
             <p:tabMenu activeIndex="#{param.i}">
                 <p:menuitem value="Inicio" outcome="index" icon="pi pi-fw pi-home">
                     <f:param name="i" value="0" />
@@ -27,8 +28,8 @@ and open the template in the editor.
                 <p:menuitem icon="pi pi-user">
                      Bienvenido #{login.user}
                 </p:menuitem>
-                
             </p:tabMenu>
+              </h:form>
         </div>
-    </h:form>
+  
 </ui:composition>
