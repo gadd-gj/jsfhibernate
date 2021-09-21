@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -14,23 +9,40 @@ and open the template in the editor.
         <title>Bienvenido</title>
         <link href="styles.css" rel="stylesheet" type="text/css" />
     </h:head>
-    <h:body class="container">
-        <div class="card" style="text-align: center">
-            <h:form>
-                <h3 class="titulo">Login</h3>
-                <p:outputLabel for="username" value="Username " />
-                <p:inputText id="username" value="#{login.user}"/>
-                <p:message for="username"></p:message>
-                <br></br><br></br>
+    <h:body>
+        <div class="card">
+            <p:panelGrid columns="3" layout="grid" styleClass="showcase-text-align-center">
+                <h:outputText value=""/>
 
-                <p:outputLabel for="password" value="Password " />
-                <p:password id="password" value="#{login.pwd}"/>
-                <p:message for="password"></p:message>
-                <br></br><br></br>
-
-                <p:commandButton action="#{login.validateUsernamePassword()}"
-                                 value="Login"/>
-            </h:form>
+                <p:outputPanel deferred="true">
+                    <h:form>
+                        <h3 style="text-align: center">Login</h3>
+                        <div class="p-grid">
+                        <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+                            <div class="ui-fluid">
+                                <div class="p-field">
+                                    <span class="ui-float-label">
+                                        <p:inputText id="username" value="#{login.user}"/>
+                                        <p:outputLabel for="username" value="Username"/>
+                                    </span>
+                                    <p:message for="username"></p:message>
+                                </div>
+                                <div class="p-field">
+                                    <span class="ui-float-label">
+                                        <p:password id="password" value="#{login.pwd}"/>
+                                        <p:outputLabel for="password" value="Password"/>
+                                    </span>
+                                    <p:message for="password"></p:message>
+                                </div>
+                                <p:commandButton action="#{login.validateUsernamePassword()}"
+                                         value="Login" />
+                            </div>
+                        </div>
+                    </div>
+                    </h:form>
+                </p:outputPanel>
+                <h:outputText value=""/>
+            </p:panelGrid>
         </div>
     </h:body>
 </html>

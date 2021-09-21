@@ -13,20 +13,22 @@ and open the template in the editor.
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:form>
-        Bienvenido #{login.user}
-        <h:commandLink action="#{login.logout}" value="Logout" style="margin-right:20px;" ></h:commandLink>
-
-        <div>
+        <div class="card">
             <p:tabMenu activeIndex="#{param.i}">
-                <p:menuitem value="Inicio" outcome="index" icon="pi pi-star">
+                <p:menuitem value="Inicio" outcome="index" icon="pi pi-fw pi-home">
                     <f:param name="i" value="0" />
                 </p:menuitem>
                 <p:menuitem value="Departamentos" outcome="departamentos" icon="pi pi-briefcase">
                     <f:param name="i" value="1" />
                 </p:menuitem>
-
+                <p:menuitem action="#{login.logout}" icon="pi pi-power-off" >
+                    Logout
+                </p:menuitem>
+                <p:menuitem icon="pi pi-user">
+                     Bienvenido #{login.user}
+                </p:menuitem>
+                
             </p:tabMenu>
         </div>
-
     </h:form>
 </ui:composition>
